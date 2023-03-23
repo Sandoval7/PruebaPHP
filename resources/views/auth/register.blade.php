@@ -4,27 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type='text/css' href=" {{ asset('assets/register/register.css') }} ">
+    <link rel="stylesheet" type='text/css' href="">
     <title>Document</title>
 </head>
 <body>
-    <div class='container'>
-        <form action="/register" method='POST'>
+@extends('layouts.auth-master')
+@section('content')
+    <form action="/register" method='POST'>
             @csrf
-            <h1>REGISTER</h1>
-            <p>Gmail</p>
-            <input type="email" name='email' value=''>
-            <p>Username</p>
-            <input type="text" name='name' value=''>
-            <p>Password</p>
-            <input type="password" name='password' value=''>
-            <p>Repeat Password</p>
-            <input type="password" name='password_confirmation' value=''>
-            <div class='btnSpace'> 
-                <button type='submit'>Submit</button>
+            <h1>Create account</h1>
+            @include('layouts.partials.messages')
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" name='email' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
-            <a href="/login">Login</a>
+            <div class="mb-3">
+                <label for="exampleInputName" class="form-label">Username</label>
+                <input type="text" name='name' class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" name='password' class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword2" class="form-label">Confirm Password</label>
+                <input type="password" name='password_confirmation' class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class='mb-3'>
+                <a href="/login">Yo have account?</a>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-    </div>
+@endsection
+
 </body>
 </html>
