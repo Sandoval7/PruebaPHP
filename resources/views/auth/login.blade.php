@@ -9,6 +9,7 @@
 </head>
 <body>
 @extends('layouts.auth-master')
+
 @section('content')
         <form action="/login" method='POST'>
             @csrf
